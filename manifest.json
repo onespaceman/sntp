@@ -1,0 +1,28 @@
+{
+  "name": "SNTP",
+  "short_name": "SNTP",
+  "version": "1.0",
+  "manifest_version": 3,
+  "homepage_url": "https://github.com/onespaceman/sntp",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{616baf5e-62f2-47cb-83a5-5ede6bb7f0db}",
+      "strict_min_version": "108.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
+  "description": "Personal new tab page",
+  "icons": {
+    "32": "icon.svg",
+    "64": "icon.svg"
+  },
+  "permissions": ["bookmarks", "topSites", "tabs", "sessions", "menus", "menus.overrideContext"],
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
+  "chrome_settings_overrides": {
+    "homepage": "newtab.html"
+  }
+}
