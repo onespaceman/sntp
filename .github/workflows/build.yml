@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6.0.2
 
       - name: "web-ext build"
         id: web-ext-build
@@ -22,15 +22,8 @@ jobs:
         uses: kewisch/action-web-ext@v2
         with:
           cmd: sign
-          
           source: ${{ steps.web-ext-build.outputs.target }}
           channel: unlisted
-          # Various metadata you can set through the API. See the documentation for the
-          # --amo-metadata parameter to web-ext sign at
-          # https://extensionworkshop.com/documentation/develop/web-ext-command-reference/#web-ext-sign
-          # for more information. You can leave out metaDataFile if all you want to set is approval
-          # notes, release notes, or a license.
-          # metaDataFile: amo_metadata.json
           releaseNotes: ${{ github.event.release.body }}
           license: MIT
 

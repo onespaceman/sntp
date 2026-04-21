@@ -8,7 +8,7 @@
   "author": "onespaceman",
   "browser_specific_settings": {
     "gecko": {
-      "id": "{616baf5e-62f2-47cb-83a5-5ede6bb7f0db}",
+      "id": "{fd9a0e29-5b95-4f30-a19f-5627907c1468}",
       "strict_min_version": "140.0",
       "data_collection_permissions": {
         "required": ["none"]
