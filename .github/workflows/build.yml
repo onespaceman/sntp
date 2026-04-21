@@ -32,9 +32,15 @@ jobs:
           apiSecret: ${{ secrets.FIREFOX_SECRET }}
           timeout: 900000
 
+      - name: "Rename asset"
+        id: rename-xpi
+        run: |
+          mv ${{steps.web-ext-sign.outputs.target}} sntp-${{github.event-release.tag_name }}.xpi
+          echo "target=sntp-${{ github.event-release.tag_name }}.xpi" >> "$GITHUB_OUTPUT"
+
       - name: "Attach release assets to release"
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh release upload ${{ github.event.release.tag_name }} \
-            ${{ steps.web-ext-sign.outputs.target }}
+            ${{ steps.rename-xpi.outputs.target }}
