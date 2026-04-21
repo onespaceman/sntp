@@ -1,0 +1,12 @@
+{
+  "addons": {
+    "{616baf5e-62f2-47cb-83a5-5ede6bb7f0db}": {
+      "updates": [
+        {
+          "version": "1.0",
+          "update_link": "https://github.com/onespaceman/sntp/releases/download/1.0/sntp-1.0.xpi"
+        }
+      ]
+    }
+  }
+}

@@ -1,13 +1,5 @@
 "use strict"
 
-browser.runtime.onInstalled.addListener(() => {
-  browser.contextMenus.create({
-    id: "sampleContextMenu",
-    title: "Sample Context Menu",
-    contexts: ["selection"],
-  })
-})
-
 const storage = {
   get: (key) => JSON.parse(localStorage.getItem(key)),
   set: (key, val) => localStorage.setItem(key, JSON.stringify(val)),
@@ -87,7 +79,7 @@ function renderItem(item) {
     const summary = document.createElement("summary")
     details.append(summary)
     summary.onclick = () => toggleFolder(item.id)
-    summary.addEventListener("contextmenu", (e) => {
+    summary.addEventListener("contextmenu", () => {
       browser.menus.overrideContext({
         showDefaults: false,
       })
@@ -129,7 +121,7 @@ async function refreshRecentTabs() {
 
 async function renderRecentTabs() {
   const closedRaw = await browser.sessions.getRecentlyClosed()
-  const closed = closedRaw.reduce((filtered, el, i) => {
+  const closed = closedRaw.reduce((filtered, el) => {
     if (filtered.length > 9) return filtered
     if (el.window && el.window.tabs.length == 1) {
       el.tab = el.window.tabs[0]
